@@ -157,6 +157,33 @@ nav .nav-right .campus {
     height: 100%;
 }
 
+/* For attendance view */
+
+.content .double-table {
+    display: flex;
+}
+
+.content .row {
+    margin-top: 30px;
+}
+
+.content .row h2 {
+    text-align: center;
+}
+
+.content .double-table .table-left {
+    padding-right: 0;
+}
+
+.content .double-table .table-right {
+    padding-left: 0;
+}
+
+.content .double-table .table-right td {
+    padding: 8px;
+    border: 1px solid rgb(197, 197, 197);
+}
+
 
 footer {
     margin-top: 40px;
