@@ -4,19 +4,21 @@
  */
 package model.assignment;
 
+import java.util.Date;
+
 public class Attandance {
-    private int id;
-    private Session session;
     private Student student;
+    private Session session;
     private boolean present;
     private String description;
+    private Date record_time;
 
-    public int getId() {
-        return id;
+    public Student getStudent() {
+        return student;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     public Session getSession() {
@@ -25,14 +27,6 @@ public class Attandance {
 
     public void setSession(Session session) {
         this.session = session;
-    }
-
-    public Student getStudent() {
-        return student;
-    }
-
-    public void setStudent(Student student) {
-        this.student = student;
     }
 
     public boolean isPresent() {
@@ -49,6 +43,14 @@ public class Attandance {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Date getRecord_time() {
+        return record_time;
+    }
+
+    public void setRecord_time(Date record_time) {
+        this.record_time = record_time;
     }
     
 }
