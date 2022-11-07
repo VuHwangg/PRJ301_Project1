@@ -31,7 +31,9 @@
                 <div class="nav-left">
                     <a href="index.html">Home</a>
                     <span>|</span>
-                    <span class="bold-letter">Single activity Attendance</span>
+                    <a class="bold-letter" href="timetable?lid=${requestScope.ses.getLecturer().getId()}">View Schedule</a>
+                    <span>|</span>
+                    <span class="bold-letter">Take Attendance</span>
                 </div>
                 <div class="nav-right bold-letter">
                     <a href="#" >${requestScope.ses.lecturer.name}</a>
@@ -43,7 +45,7 @@
             </nav>
             <div class="content">
                 <div class="note">
-                    <h2 class="thin-letter">Take activity Attendance</h2>
+                    <h2 class="thin-letter">Take Attendance</h2>
                     <p>
                         Attendance for <span class="bold-letter">${requestScope.ses.group.subject.name} - ${requestScope.ses.group.name}</span> 
                         with lecturer <span class="bold-letter">${requestScope.ses.lecturer.name}</span> 

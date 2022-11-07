@@ -51,6 +51,10 @@ public class TimetableController extends HttpServlet {
             to = java.sql.Date.valueOf(raw_to);
         }
         
+        Date currentDate = new Date();
+        Date currentDate2 = DateTimeHelper.removeTime(currentDate);
+        request.setAttribute("currentDate", currentDate2);
+        
         // Arraylist of Column table
         request.setAttribute("from", from);
         request.setAttribute("to", to);

@@ -14,6 +14,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import model.assignment.Attandance;
 import model.assignment.Session;
 import model.assignment.Student;
+import util.DateTimeHelper;
 
 public class AttController extends HttpServlet {
    
@@ -25,7 +26,16 @@ public class AttController extends HttpServlet {
         // Lay ra thong tin cua 1 session dua theo id cua session do
         Session ses = sesDB.get(sesid);
         request.setAttribute("ses", ses);
-        request.getRequestDispatcher("../view/lecturer/takeatt.jsp").forward(request, response);
+        // Neu ses.getDate() la Qua khu (truoc do > 2 ngay)
+        if (DateTimeHelper.getDaystoCurrent(ses.getDate()) >= 2){
+            request.getRequestDispatcher("../view/lecturer/checkatt.jsp").forward(request, response);
+        }// Neu ses.getDate() la Tuong lai (bat dau tu ngay mai)
+        else if(DateTimeHelper.getDaystoCurrent(ses.getDate()) < 0){
+            response.sendRedirect("timetable?lid="+ses.getLecturer().getId());
+        }
+        else {
+            request.getRequestDispatcher("../view/lecturer/takeatt.jsp").forward(request, response);
+        }
     } 
 
     @Override

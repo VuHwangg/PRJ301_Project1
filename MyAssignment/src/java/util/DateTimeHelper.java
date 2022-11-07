@@ -106,4 +106,12 @@ public class DateTimeHelper {
          System.out.println(a + " " + b +" " +e_a.compareTo(e_b));
         return e_a.compareTo(e_b);
     }
+    
+    public static float getDaystoCurrent(java.sql.Date d)
+    {
+        java.util.Date e = new java.util.Date(d.getTime());
+        java.util.Date current = new java.util.Date();
+        long diff = current.getTime() - e.getTime();
+        return ((float)diff / (1000*60*60*24));
+    }
 }

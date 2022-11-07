@@ -44,7 +44,7 @@
                 </div>
             </nav>
             <div class="content">
-                <div>Lecturer: <input type="text" readonly="readonly" value="${requestScope.lecturer.name}"/></div>
+                <div class="lecturer-box">Lecturer: <input type="text" readonly="readonly" value="${requestScope.lecturer.name}"/></div>
                 <div class="table">
                     <table>
                         <thead>
@@ -94,7 +94,12 @@
 <!--                                                If "Date" and "Slot" of this session in list is equal with
                                                     cell session (based on row and col). Display this session info-->
                                                     <c:if test="${helper.compare(ses.date,d) eq 0 and (ses.timeslot.id eq slot.id)}">
-                                                        <a class="course" href="takeatt?id=${ses.id}">${ses.group.name}-${ses.group.subject.name}</a>
+                                                        <c:if test="${helper.getDaystoCurrent(ses.getDate()) >= 0}">
+                                                            <a class="course" href="takeatt?id=${ses.id}">${ses.group.name}-${ses.group.subject.name}</a>
+                                                        </c:if>
+                                                        <c:if test="${helper.getDaystoCurrent(ses.getDate()) < 0}">
+                                                            <span class="course">${ses.group.name}-${ses.group.subject.name}</span>
+                                                        </c:if>
                                                         
                                                         <br/>
                                                         at <span class="room">${ses.room.name}</span>
@@ -102,10 +107,11 @@
                                                         <a href="#" class="materials padding-text yellow">View&nbsp;Materials</a>
                                                         <br/>
                                                         <c:if test="${ses.attanded}">
-                                                            (<font color="green">attended</font>)
+                                                            (<font color="green">Present</font>)
                                                         </c:if>
+                                                         
                                                         <c:if test="${!ses.attanded}">
-                                                            (<font color="red">absent</font>)
+                                                            (<font color="red">Not yet</font>)
                                                         </c:if>
                                                         <br/>
                                                         <span class="time padding-text green">${slot.description}</span>
