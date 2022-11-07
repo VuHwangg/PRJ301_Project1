@@ -9,6 +9,9 @@ import java.util.ArrayList;
 public class Student {
     private int id;
     private String name;
+    private String code;
+
+    
     private ArrayList<Group> groups = new ArrayList<>();
     private ArrayList<Attandance> attandances = new ArrayList<>();
 
@@ -44,4 +47,11 @@ public class Student {
         this.attandances = attandances;
     }
     
+    public String getCode() {
+        return code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
+    }
 }

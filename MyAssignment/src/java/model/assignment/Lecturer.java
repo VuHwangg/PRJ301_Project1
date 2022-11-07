@@ -9,6 +9,9 @@ import java.util.ArrayList;
 public class Lecturer {
     private int id;
     private String name;
+    private String fullname;
+
+   
     private ArrayList<Group> groups = new ArrayList<>();
     private ArrayList<Session> sessions = new ArrayList<>();
 
@@ -44,4 +47,11 @@ public class Lecturer {
         this.sessions = sessions;
     }
     
+     public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
 }

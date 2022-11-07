@@ -25,7 +25,7 @@ public class AttController extends HttpServlet {
         // Lay ra thong tin cua 1 session dua theo id cua session do
         Session ses = sesDB.get(sesid);
         request.setAttribute("ses", ses);
-        request.getRequestDispatcher("../view/lecturer/att.jsp").forward(request, response);
+        request.getRequestDispatcher("../view/lecturer/takeatt.jsp").forward(request, response);
     } 
 
     @Override

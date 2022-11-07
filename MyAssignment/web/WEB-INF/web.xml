@@ -8,6 +8,10 @@
         <servlet-name>LecturerAttController</servlet-name>
         <servlet-class>assignment.lecturer.AttController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>CheckAttController</servlet-name>
+        <servlet-class>assignment.lecturer.CheckAttController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LecturerTimetableController</servlet-name>
         <url-pattern>/lecturer/timetable</url-pattern>
@@ -15,6 +19,10 @@
     <servlet-mapping>
         <servlet-name>LecturerAttController</servlet-name>
         <url-pattern>/lecturer/takeatt</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>CheckAttController</servlet-name>
+        <url-pattern>/lecturer/checkatt</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
