@@ -22,6 +22,7 @@ import model.TimeSlot;
 
 public class SessionDBContext extends DBContext<Session> {
 
+    // Filter by lecturer data
     public ArrayList<Session> filter(int lid, Date from, Date to) {
         ArrayList<Session> sessions = new ArrayList<>();
         try {
@@ -89,7 +90,7 @@ public class SessionDBContext extends DBContext<Session> {
         }
         return sessions;
     }
-
+    
     @Override
     public void insert(Session model) {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody

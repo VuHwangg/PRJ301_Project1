@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package controller.lecturer;
+package controller.student;
 
 import dal.LecturerDBContext;
 import dal.SessionDBContext;
@@ -21,12 +21,12 @@ import model.Session;
 import model.TimeSlot;
 import util.DateTimeHelper;
 
-public class TimetableController extends HttpServlet {
+public class TimetableStuController extends HttpServlet {
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
-        // id of Lecturer
-        int lid = Integer.parseInt(request.getParameter("lid"));
+        // id of Student
+        int sid = Integer.parseInt(request.getParameter("sid"));
         String raw_from = request.getParameter("from");
         String raw_to = request.getParameter("to");
         java.sql.Date from = null;
@@ -64,12 +64,12 @@ public class TimetableController extends HttpServlet {
         
         // Arraylist of each cell in table
         SessionDBContext sesDB = new SessionDBContext();
-        ArrayList<Session> sessions = sesDB.filter(lid, from, to);
+        ArrayList<Session> sessions = sesDB.filter(sid, from, to);
         request.setAttribute("sessions", sessions);
         
         // Get object Lecturer by lecturer id
         LecturerDBContext lecDB = new LecturerDBContext();
-        Lecturer lecturer = lecDB.get(lid);
+        Lecturer lecturer = lecDB.get(sid);
         request.setAttribute("lecturer", lecturer);
         
         request.getRequestDispatcher("../view/lecturer/timetable.jsp").forward(request, response);
