@@ -5,6 +5,7 @@
 
 package controller.lecturer;
 
+import controller.authen.BaseRoleController;
 import dal.LecturerDBContext;
 import dal.SessionDBContext;
 import dal.TimeSlotDBContext;
@@ -16,12 +17,13 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.Date;
+import model.Account;
 import model.Lecturer;
 import model.Session;
 import model.TimeSlot;
 import util.DateTimeHelper;
 
-public class TimetableController extends HttpServlet {
+public class TimetableController extends BaseRoleController {
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
@@ -76,14 +78,14 @@ public class TimetableController extends HttpServlet {
     } 
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+    protected void processGet(HttpServletRequest request, HttpServletResponse response, Account account) 
+            throws ServletException, IOException{
         processRequest(request, response);
     } 
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+    protected void processPost(HttpServletRequest request, HttpServletResponse response, Account account) 
+            throws ServletException, IOException{
         processRequest(request, response);
     }
 }

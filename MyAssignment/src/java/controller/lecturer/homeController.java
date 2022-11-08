@@ -5,7 +5,6 @@
 package controller.lecturer;
 
 import controller.authen.BaseRoleController;
-import dal.SessionDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -13,22 +12,12 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Account;
-import model.Session;
 
-/**
- *
- * @author bonne
- */
-public class CheckAttController extends BaseRoleController {
+public class homeController extends BaseRoleController {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        int sesid = Integer.parseInt(request.getParameter("id"));
-        SessionDBContext sesDB = new SessionDBContext();
-        // Lay ra thong tin cua 1 session dua theo id cua session do
-        Session ses = sesDB.get(sesid);
-        request.setAttribute("ses", ses);
-        request.getRequestDispatcher("../view/lecturer/checkatt.jsp").forward(request, response);
+        request.getRequestDispatcher("../view/lecturer/home.jsp").forward(request, response);
     }
 
     @Override

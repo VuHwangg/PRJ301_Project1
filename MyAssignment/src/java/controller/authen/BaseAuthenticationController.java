@@ -11,10 +11,6 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import model.Account;
 
-/**
- *
- * @author sonnt
- */
 public abstract class BaseAuthenticationController extends HttpServlet {
     private boolean isAuthenticated(HttpServletRequest request)
     {

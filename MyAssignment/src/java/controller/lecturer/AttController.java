@@ -5,22 +5,24 @@
 
 package controller.lecturer;
 
+import controller.authen.BaseRoleController;
 import dal.SessionDBContext;
 import java.io.IOException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import model.Account;
 import model.Attandance;
 import model.Session;
 import model.Student;
 import util.DateTimeHelper;
 
-public class AttController extends HttpServlet {
+public class AttController extends BaseRoleController {
    
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+    protected void processGet(HttpServletRequest request, HttpServletResponse response, Account account) 
+            throws ServletException, IOException{
         int sesid = Integer.parseInt(request.getParameter("id"));
         SessionDBContext sesDB = new SessionDBContext();
         // Lay ra thong tin cua 1 session dua theo id cua session do
@@ -39,8 +41,8 @@ public class AttController extends HttpServlet {
     } 
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+    protected void processPost(HttpServletRequest request, HttpServletResponse response, Account account) 
+            throws ServletException, IOException{
         Session ses = new Session();
         ses.setId(Integer.parseInt(request.getParameter("sesid")));
         String[] stdids = request.getParameterValues("stdid");
