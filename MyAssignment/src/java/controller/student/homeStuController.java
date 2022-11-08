@@ -2,22 +2,21 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
-package controller.lecturer;
+package controller.student;
 
 import controller.authen.BaseRoleController;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import model.Account;
 
-public class homeController extends BaseRoleController {
+public class homeStuController extends BaseRoleController {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response, Account account) 
             throws ServletException, IOException {
-        request.getRequestDispatcher("../view/lecturer/home.jsp").forward(request, response);
+        request.setAttribute("account", account);
+        request.getRequestDispatcher("../view/student/homeStu.jsp").forward(request, response);
     }
 
     @Override

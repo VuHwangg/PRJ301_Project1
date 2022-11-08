@@ -18,7 +18,7 @@ public class AccountDBContext extends DBContext<Account> {
 
     public Account getAccount(String username, String password) {
         try {
-            String sql = "SELECT a.username,a.displayname\n"
+            String sql = "SELECT a.username,a.displayname, a.aid, a.fullname\n"
                     + "	,r.rid,r.rname\n"
                     + "	,f.fid,f.fname,f.url\n"
                     + "	FROM Account a \n"
@@ -39,6 +39,8 @@ public class AccountDBContext extends DBContext<Account> {
                     account = new Account();
                     account.setUsername(rs.getString("username"));
                     account.setDisplayName(rs.getString("displayname"));
+                    account.setAid(rs.getInt("aid"));
+                    account.setFullname(rs.getString("fullname"));
                 }
                 int rid = rs.getInt("rid");
                 if (rid != 0) {

@@ -29,7 +29,7 @@
             </header>
             <nav>
                 <div class="nav-left">
-                    <a href="index.html">Home</a>
+                    <a class="bold-letter" href="home">Home</a>
                     <span>|</span>
                     <a class="bold-letter" href="timetable?lid=${requestScope.ses.getLecturer().getId()}">View Schedule</a>
                     <span>|</span>
@@ -38,7 +38,7 @@
                 <div class="nav-right bold-letter">
                     <a href="#" >${requestScope.ses.lecturer.name}</a>
                     <span>|</span>
-                    <a href="#">logout</a>
+                    <a href="../logout">logout</a>
                     <span>|</span>
                     <span class="campus">CAMPUS: FPTU-Hòa Lạc</span>
                 </div>

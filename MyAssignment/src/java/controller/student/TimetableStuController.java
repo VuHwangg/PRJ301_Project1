@@ -5,28 +5,27 @@
 
 package controller.student;
 
-import dal.LecturerDBContext;
+import controller.authen.BaseRoleController;
 import dal.SessionDBContext;
+import dal.StudentDBContext;
 import dal.TimeSlotDBContext;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.Date;
-import model.Lecturer;
+import model.Account;
 import model.Session;
+import model.Student;
 import model.TimeSlot;
 import util.DateTimeHelper;
 
-public class TimetableStuController extends HttpServlet {
+public class TimetableStuController extends BaseRoleController {
    
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        // id of Student
-        int sid = Integer.parseInt(request.getParameter("sid"));
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response, Account account) 
+            throws ServletException, IOException {
+        int stdid = account.getAid();
         String raw_from = request.getParameter("from");
         String raw_to = request.getParameter("to");
         java.sql.Date from = null;
@@ -50,7 +49,7 @@ public class TimetableStuController extends HttpServlet {
             from = java.sql.Date.valueOf(raw_from);
             to = java.sql.Date.valueOf(raw_to);
         }
-        
+
         // Arraylist of Column table
         request.setAttribute("from", from);
         request.setAttribute("to", to);
@@ -61,29 +60,27 @@ public class TimetableStuController extends HttpServlet {
         TimeSlotDBContext slotDB = new TimeSlotDBContext();
         ArrayList<TimeSlot> slots = slotDB.list();
         request.setAttribute("slots", slots);
-        
-        // Arraylist of each cell in table
+
         SessionDBContext sesDB = new SessionDBContext();
-        ArrayList<Session> sessions = sesDB.filter(sid, from, to);
+        ArrayList<Session> sessions = sesDB.getStudentTimetable(stdid, from, to);
         request.setAttribute("sessions", sessions);
+
+        StudentDBContext sDB = new StudentDBContext();
+        Student student = sDB.get(stdid);
+        request.setAttribute("student", student);
         
-        // Get object Lecturer by lecturer id
-        LecturerDBContext lecDB = new LecturerDBContext();
-        Lecturer lecturer = lecDB.get(sid);
-        request.setAttribute("lecturer", lecturer);
-        
-        request.getRequestDispatcher("../view/lecturer/timetable.jsp").forward(request, response);
+        request.getRequestDispatcher("../view/student/timetableStu.jsp").forward(request, response);
+    } 
+
+     @Override
+    protected void processGet(HttpServletRequest request, HttpServletResponse response, Account account) 
+            throws ServletException, IOException{
+        processRequest(request, response, account);
     } 
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        processRequest(request, response);
-    } 
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
-        processRequest(request, response);
+    protected void processPost(HttpServletRequest request, HttpServletResponse response, Account account) 
+            throws ServletException, IOException{
+        processRequest(request, response, account);
     }
 }

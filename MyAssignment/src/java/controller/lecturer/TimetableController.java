@@ -10,9 +10,7 @@ import dal.LecturerDBContext;
 import dal.SessionDBContext;
 import dal.TimeSlotDBContext;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
@@ -25,10 +23,10 @@ import util.DateTimeHelper;
 
 public class TimetableController extends BaseRoleController {
    
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-    throws ServletException, IOException {
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response, Account account) 
+            throws ServletException, IOException {
         // id of Lecturer
-        int lid = Integer.parseInt(request.getParameter("lid"));
+        int lid = account.getAid();
         String raw_from = request.getParameter("from");
         String raw_to = request.getParameter("to");
         java.sql.Date from = null;
@@ -80,12 +78,12 @@ public class TimetableController extends BaseRoleController {
     @Override
     protected void processGet(HttpServletRequest request, HttpServletResponse response, Account account) 
             throws ServletException, IOException{
-        processRequest(request, response);
+        processRequest(request, response, account);
     } 
 
     @Override
     protected void processPost(HttpServletRequest request, HttpServletResponse response, Account account) 
             throws ServletException, IOException{
-        processRequest(request, response);
+        processRequest(request, response, account);
     }
 }

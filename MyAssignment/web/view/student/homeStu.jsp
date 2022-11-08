@@ -46,7 +46,7 @@
                 </div>
             </nav>
             <div class="content">
-                <h2><a href="timetable">Timetable for Lecturer</a></h2>
+                <h2><a href="timetable">Timetable for Student</a></h2>
             </div>
 
             <footer>

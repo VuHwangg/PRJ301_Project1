@@ -24,6 +24,14 @@
         <servlet-name>homeController</servlet-name>
         <servlet-class>controller.lecturer.homeController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>homeStuController</servlet-name>
+        <servlet-class>controller.student.homeStuController</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>logoutController</servlet-name>
+        <servlet-class>controller.authen.logoutController</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>LecturerTimetableController</servlet-name>
         <url-pattern>/lecturer/timetable</url-pattern>
@@ -47,6 +55,14 @@
     <servlet-mapping>
         <servlet-name>homeController</servlet-name>
         <url-pattern>/lecturer/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>homeStuController</servlet-name>
+        <url-pattern>/student/home</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>logoutController</servlet-name>
+        <url-pattern>/logout</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

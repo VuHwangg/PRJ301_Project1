@@ -14,6 +14,8 @@ public class Account {
     private String username;
     private String password;
     private String displayName;
+    private String fullname;
+    private int aid;
     private ArrayList<Role> roles = new ArrayList<>();
     
     public String getUsername() {
@@ -47,4 +49,22 @@ public class Account {
     public void setRoles(ArrayList<Role> roles) {
         this.roles = roles;
     }
+
+    public int getAid() {
+        return aid;
+    }
+
+    public void setAid(int aid) {
+        this.aid = aid;
+    }
+
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
+    
+    
 }

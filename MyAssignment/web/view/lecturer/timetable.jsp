@@ -7,7 +7,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-        <title>View Schedule</title>
+        <title>Timetable</title>
 
         <!-- Bootstrap -->
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
@@ -31,14 +31,14 @@
             </header>
             <nav>
                 <div class="nav-left">
-                    <a href="index.html">Home</a>
+                    <a class="bold-letter" href="home">Home</a>
                     <span>|</span>
                     <span class="bold-letter">View Schedule</span>
                 </div>
                 <div class="nav-right bold-letter">
                     <a href="#" >${requestScope.lecturer.name}</a>
                     <span>|</span>
-                    <a href="#">logout</a>
+                    <a href="../logout">logout</a>
                     <span>|</span>
                     <span class="campus">CAMPUS: FPTU-Hòa Lạc</span>
                 </div>
@@ -52,7 +52,6 @@
                             <tr>
                                 <th rowspan="2">
                                     <form action="timetable" method="GET">
-                                        <input type="hidden" name="lid" value="${param.lid}"/>
                                         <table class="second-table">
                                             <tr>
                                                 <td>From </td>

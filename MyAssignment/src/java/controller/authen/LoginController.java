@@ -6,7 +6,6 @@ package controller.authen;
 
 import dal.AccountDBContext;
 import java.io.IOException;
-import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
@@ -50,8 +49,11 @@ public class LoginController extends HttpServlet {
             }
             else {
                 request.getSession().setAttribute("account", account);
-                String roleName = role.getRname();
-                request.getRequestDispatcher(roleName + "/home").forward(request, response);
+                if (role.getRid() == 1) {
+                    request.getRequestDispatcher("/view/lecturer/home.jsp").forward(request, response);
+                } else {
+                    request.getRequestDispatcher("/view/student/homeStu.jsp").forward(request, response);
+                }
             }
         }
     }
