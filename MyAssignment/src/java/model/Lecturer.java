@@ -2,13 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model.assignment;
+package model;
 
 import java.util.ArrayList;
 
-public class TimeSlot {
+public class Lecturer {
     private int id;
-    private String description;
+    private String name;
+    private String fullname;
+
+   
+    private ArrayList<Group> groups = new ArrayList<>();
     private ArrayList<Session> sessions = new ArrayList<>();
 
     public int getId() {
@@ -19,12 +23,20 @@ public class TimeSlot {
         this.id = id;
     }
 
-    public String getDescription() {
-        return description;
+    public String getName() {
+        return name;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public ArrayList<Group> getGroups() {
+        return groups;
+    }
+
+    public void setGroups(ArrayList<Group> groups) {
+        this.groups = groups;
     }
 
     public ArrayList<Session> getSessions() {
@@ -35,4 +47,11 @@ public class TimeSlot {
         this.sessions = sessions;
     }
     
+     public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
 }

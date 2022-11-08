@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package dal.assignment;
+package dal;
 
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -11,14 +11,14 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.assignment.Attandance;
-import model.assignment.Group;
-import model.assignment.Lecturer;
-import model.assignment.Room;
-import model.assignment.Session;
-import model.assignment.Student;
-import model.assignment.Subject;
-import model.assignment.TimeSlot;
+import model.Attandance;
+import model.Group;
+import model.Lecturer;
+import model.Room;
+import model.Session;
+import model.Student;
+import model.Subject;
+import model.TimeSlot;
 
 public class SessionDBContext extends DBContext<Session> {
 

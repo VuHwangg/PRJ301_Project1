@@ -2,18 +2,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package model.assignment;
+package model;
 
 import java.util.ArrayList;
 
-public class Lecturer {
+public class Group {
     private int id;
     private String name;
-    private String fullname;
-
-   
+    private ArrayList<Student> students = new ArrayList<>();
     private ArrayList<Group> groups = new ArrayList<>();
-    private ArrayList<Session> sessions = new ArrayList<>();
+    private Subject subject;
+    private Lecturer supervisor;
 
     public int getId() {
         return id;
@@ -31,6 +30,14 @@ public class Lecturer {
         this.name = name;
     }
 
+    public ArrayList<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(ArrayList<Student> students) {
+        this.students = students;
+    }
+    
     public ArrayList<Group> getGroups() {
         return groups;
     }
@@ -39,19 +46,20 @@ public class Lecturer {
         this.groups = groups;
     }
 
-    public ArrayList<Session> getSessions() {
-        return sessions;
+    public Subject getSubject() {
+        return subject;
     }
 
-    public void setSessions(ArrayList<Session> sessions) {
-        this.sessions = sessions;
+    public void setSubject(Subject subject) {
+        this.subject = subject;
+    }
+
+    public Lecturer getSupervisor() {
+        return supervisor;
+    }
+
+    public void setSupervisor(Lecturer supervisor) {
+        this.supervisor = supervisor;
     }
     
-     public String getFullname() {
-        return fullname;
-    }
-
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
-    }
 }

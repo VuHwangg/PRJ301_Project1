@@ -3,11 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 
-package assignment.lecturer;
+package controller.lecturer;
 
-import dal.assignment.LecturerDBContext;
-import dal.assignment.SessionDBContext;
-import dal.assignment.TimeSlotDBContext;
+import dal.LecturerDBContext;
+import dal.SessionDBContext;
+import dal.TimeSlotDBContext;
 import java.io.IOException;
 import java.io.PrintWriter;
 import jakarta.servlet.ServletException;
@@ -16,9 +16,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.util.ArrayList;
 import java.util.Date;
-import model.assignment.Lecturer;
-import model.assignment.Session;
-import model.assignment.TimeSlot;
+import model.Lecturer;
+import model.Session;
+import model.TimeSlot;
 import util.DateTimeHelper;
 
 public class TimetableController extends HttpServlet {

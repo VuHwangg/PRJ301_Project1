@@ -2,15 +2,15 @@
 <web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
     <servlet>
         <servlet-name>LecturerTimetableController</servlet-name>
-        <servlet-class>assignment.lecturer.TimetableController</servlet-class>
+        <servlet-class>controller.lecturer.TimetableController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>LecturerAttController</servlet-name>
-        <servlet-class>assignment.lecturer.AttController</servlet-class>
+        <servlet-class>controller.lecturer.AttController</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>CheckAttController</servlet-name>
-        <servlet-class>assignment.lecturer.CheckAttController</servlet-class>
+        <servlet-class>controller.lecturer.CheckAttController</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>LecturerTimetableController</servlet-name>
